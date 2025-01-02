@@ -1,13 +1,73 @@
 {
+  "name": "elpis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --quiet --ext js,vue .",
+    "test": "set _ENV=local&& mocha 'test/**/*.js'",
+    "dev": "cross-env _ENV=local nodemon ./index.js",
+    "beta": "cross-env _ENV=beta node ./index.js",
+    "prod": "cross-env _ENV=prodction node ./index.js",
+    "build:dev": "node --max_old_space_size=4096 ./app/webpack/dev.js",
+    "build:prod": "node ./app/webpack/prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sanxun8/shop-rebuild.git"
+  },
+  "author": "三旬",
+  "license": "ISC",
   "dependencies": {
+    "@vue/server-renderer": "^3.5.13",
     "ajv": "^8.17.1",
     "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
+    "element-plus": "^2.9.1",
     "express": "^4.21.2",
     "glob": "^10.4.5",
     "http-errors": "^2.0.0",
+    "less": "^4.2.1",
     "log4js": "^6.9.1",
     "md5": "^2.3.0",
-    "morgan": "^1.10.0"
+    "mini-css-extract-plugin": "^2.9.2",
+    "morgan": "^1.10.0",
+    "os": "^0.1.2",
+    "pinia": "^2.3.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "mocha": "^6.1.4",
+    "ghooks": "~1.0.3",
+    "validate-commit-msg": "~2.14.0",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-inject-attributes-plugin": "^1.0.6",
+    "html-webpack-plugin": "^5.6.3",
+    "less-loader": "^12.2.0",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.11",
+    "url-loader": "^4.1.1",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.97.1",
+    "webpack-dev-middleware": "^7.4.2",
+    "webpack-hot-middleware": "^2.26.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "npm run lint"
+    }
   }
 }

@@ -10,6 +10,21 @@
       "name": "启动程序",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\index.js"
+    },
+    {
+      "name": "Current File",
+      "program": "${file}",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "build:prod",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "build:prod"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
     }
   ]
 }
