@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ name }}</title>
+    <link href="/static/normalize.css" ref="styesheet" />
+    <link href="/static/logo.png" rel="icon" type="image/x-icon" />
+  </head>
+  <body style="margin: 8">
+    <div id="root"></div>
+    <input style="display: none" id="env" value="{{ env }}" />
+    <input style="display: none" id="options" value="{{ options }}" />
+  </body>
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-md5@0.8.3/src/md5.min.js"></script>
+  <script>
+    try {
+      window.env = document.getElementById("env").value;
+      window.options = document.getElementById("options").value;
+    } catch (e) {
+      console.log(e);
+    }
+  </script>
+</html>

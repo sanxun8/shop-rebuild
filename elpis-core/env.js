@@ -2,6 +2,7 @@ module.exports = (app) => {
   return {
     // 判断是否本地环境
     isLocal() {
+      console.log(process.env._ENV === "local", typeof process.env._ENV);
       return !process.env._ENV || process.env._ENV === "local";
     },
 
